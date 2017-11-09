@@ -41,7 +41,10 @@ defmodule Core.Mixfile do
       {:absinthe_plug, "~> 1.4.0-rc.2"},
       {:absinthe_phoenix, "~> 1.4.0-rc.4"},
       {:absinthe_ecto, "~> 0.1.2"},
-      {:poison, "~> 2.1.0"}
+      {:poison, "~> 3.0", override: true},
+      {:ecto, "~> 2.2.6"},
+      {:postgrex, "0.13.3"},
+      {:phoenix, "1.3.0"}
     ]
   end
 end
