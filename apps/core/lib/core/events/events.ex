@@ -58,4 +58,12 @@ defmodule Core.Events do
   def change_meetup(%Meetup{} = meetup) do
     Meetup.changeset(meetup, %{})
   end
+
+  def assign_user(%Conference{} = conference, %Core.Accounts.User{} = user) do
+    conference
+    |> Repo.preload(:users)
+    |> Ecto.Changeset.change()
+    |> Ecto.Changeset.put_assoc(:users, [user])
+    |> Repo.update()
+  end
 end

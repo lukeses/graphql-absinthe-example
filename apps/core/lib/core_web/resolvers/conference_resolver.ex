@@ -15,4 +15,12 @@ defmodule CoreWeb.Resolvers.ConferenceResolver do
   def get(%{id: id} = args, _info) do
     {:ok, Core.Events.get_conference!(id)}
   end
+
+  def assign_user(%{id: id, user_id: user_id} = args, _info) do
+    conference = Core.Events.get_conference!(id)
+    user = Core.Accounts.get_user!(user_id)
+    
+    Core.Events.assign_user(conference, user)
+    {:ok, Core.Events.get_conference!(id)}
+  end
 end

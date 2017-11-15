@@ -1,5 +1,6 @@
 defmodule CoreWeb.Schema.Types.Conference do
   use Absinthe.Schema.Notation
+  use Absinthe.Ecto, repo: Core.Repo
 
   import_types Absinthe.Type.Custom
 
@@ -19,5 +20,8 @@ defmodule CoreWeb.Schema.Types.Conference do
 
     @desc "An end_time"
     field :end_time, :naive_datetime
+
+    @desc "Users associated with conference"
+    field :users, list_of(:user), resolve: assoc(:users)
   end
 end

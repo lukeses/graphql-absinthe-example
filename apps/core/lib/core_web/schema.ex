@@ -59,6 +59,14 @@ defmodule CoreWeb.Schema do
   
       resolve &CoreWeb.Resolvers.UserResolver.update/2
     end
+
+    @desc "Assign a user to conference"
+    field :assign_user, type: :conference do
+      arg :id, non_null(:id)
+      arg :user_id, non_null(:id)
+  
+      resolve &CoreWeb.Resolvers.ConferenceResolver.assign_user/2
+    end
   end
 
   # Publishing in iex -S:

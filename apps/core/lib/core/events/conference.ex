@@ -10,6 +10,8 @@ defmodule Core.Events.Conference do
     field :name, :string
     field :start_time, :naive_datetime
 
+    many_to_many :users, Core.Accounts.User, join_through: "conferences_users"
+
     timestamps()
   end
 

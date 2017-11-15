@@ -4,7 +4,7 @@ defmodule Core.Accounts.User do
   alias Core.Accounts.User
 
 
-  schema "user" do
+  schema "users" do
     field :first_name, :string
     field :intro, :string
     field :second_name, :string
