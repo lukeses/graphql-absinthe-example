@@ -27,6 +27,9 @@ defmodule CoreWeb.Schema do
     @desc "Create a conference"
     field :create_conference, type: :conference do
       arg :name, non_null(:string)
+      arg :description, :string
+      arg :start_time, :naive_datetime
+      arg :end_time, :naive_datetime
   
       resolve &CoreWeb.Resolvers.ConferenceResolver.create/2
     end
@@ -35,6 +38,9 @@ defmodule CoreWeb.Schema do
     field :update_conference, type: :conference do
       arg :id, non_null(:id)
       arg :name, non_null(:string)
+      arg :description, :string
+      arg :start_time, :naive_datetime
+      arg :end_time, :naive_datetime
   
       resolve &CoreWeb.Resolvers.ConferenceResolver.update/2
     end
