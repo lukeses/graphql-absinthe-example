@@ -13,7 +13,6 @@ defmodule Core.Events.Meetup do
     timestamps()
   end
 
-  @doc false
   def changeset(%Meetup{} = meetup, attrs) do
     meetup
     |> cast(attrs, [:name, :start_time, :end_time, :description])

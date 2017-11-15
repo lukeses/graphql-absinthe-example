@@ -1,5 +1,6 @@
 defmodule CoreWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :core
+  use Absinthe.Phoenix.Endpoint
 
   socket "/socket", CoreWeb.UserSocket
 

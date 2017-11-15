@@ -12,10 +12,9 @@ defmodule Core.Accounts.User do
     timestamps()
   end
 
-  @doc false
   def changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:first_name, :second_name, :intro])
-    |> validate_required([:first_name, :second_name, :intro])
+    |> validate_required([:first_name])
   end
 end

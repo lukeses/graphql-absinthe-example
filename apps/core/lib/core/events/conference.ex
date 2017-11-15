@@ -13,10 +13,9 @@ defmodule Core.Events.Conference do
     timestamps()
   end
 
-  @doc false
   def changeset(%Conference{} = conference, attrs) do
     conference
     |> cast(attrs, [:name, :start_time, :end_time, :description])
-    |> validate_required([:name, :start_time, :end_time, :description])
+    |> validate_required([:name])
   end
 end
